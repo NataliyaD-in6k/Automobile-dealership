@@ -1,0 +1,26 @@
+body{
+    background-color: #2f4f4f;
+    color: #ffffff;
+}
+.site-header{
+    color: #2f4f4f;
+}
+.site-header h1{
+    margin: 0;
+}
+.logo{
+    height: 50px;
+    display: inline-block;
+    margin: 0;
+    text-align: center;
+}
+.create-deal-button{
+    margin-top: 20px;
+    height: 60px;
+    font-size: 20px;
+}
+.profile{
+    line-height: 2;
+    font-weight: 200;
+    font-size: 17px;
+}

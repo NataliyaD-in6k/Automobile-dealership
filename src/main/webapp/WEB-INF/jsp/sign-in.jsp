@@ -12,9 +12,17 @@
 </head>
 <body>
 <%@ include file="header.jsp" %>
-<form action="/process-form" method="post">
-    <input type="text" name="email">
-    <input type="submit" value="Enter">
+<h1 class="text-center">Sign in</h1>
+<form action="/process-form" method="post" role="form" class="sign-in form-horizontal">
+    <div class="form-group">
+        <label for="mail" class="col-sm-4 control-label lead">Email</label>
+        <div class="col-sm-4">
+            <input type="text" name="email" id="mail" class="form-control" placeholder="Your email">
+        </div>
+        <div class="col-sm-1">
+            <input type="submit" value="Sign in" class="btn btn-success form-control">
+        </div>
+    </div>
 </form>
 </body>
 </html>

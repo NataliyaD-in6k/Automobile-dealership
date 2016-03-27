@@ -17,7 +17,7 @@ public class TomcatLaunch {
         }
         tomcat.setPort(Integer.valueOf(webPort));
 
-        StandardContext ctx = (StandardContext) tomcat.addWebapp("/", new File("src/main/webapp/").getAbsolutePath());
+        StandardContext ctx = (StandardContext) tomcat.addWebapp("", new File("src/main/webapp/").getAbsolutePath());
 
         WebResourceRoot resources = new StandardRoot(ctx);
         ctx.setResources(resources);

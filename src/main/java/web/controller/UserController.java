@@ -21,14 +21,22 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping("")
-    public String showSignInForm(){
+    public String showSignInForm() {
         return "sign-in";
     }
 
     @RequestMapping(value = "process-form", method = RequestMethod.POST)
-    public String processForm(@RequestParam("email") String email, ModelMap model){
-        User user = userService.getUserByEmail(email);
-        model.addAttribute(user);
+    public String processForm(HttpServletRequest request) {
+        if (userService.authorize(request)) {
+            return "redirect:/profile";
+        } else {
+            return "redirect:/";
+        }
+    }
+
+    @RequestMapping(value = "profile", method = RequestMethod.GET)
+    public String showUserProfile(ModelMap model, HttpServletRequest request) {
+        model.addAttribute(userService.getUser(request));
         return "/user-profile";
     }
 }
