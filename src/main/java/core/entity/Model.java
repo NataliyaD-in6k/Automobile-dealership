@@ -1,6 +1,7 @@
 package core.entity;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity(name = "models")
 public class Model {
@@ -12,11 +13,24 @@ public class Model {
     @Column(name = "name")
     private String name;
 
+    @ManyToOne
+    @JoinColumn(name = "brand_id")
+    private Brand brand;
+
+    @Column(name = "price")
+    private BigDecimal price;
+
     public Model() {
     }
 
     public Model(String name) {
         this.name = name;
+    }
+
+    public Model(String name, Brand brand, BigDecimal price) {
+        this.name = name;
+        this.brand = brand;
+        this.price = price;
     }
 
     public Integer getId() {
@@ -33,5 +47,21 @@ public class Model {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Brand getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 }

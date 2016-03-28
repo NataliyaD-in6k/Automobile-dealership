@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 @Service
 @Transactional
 public class UserService {
-
     @Autowired
     private UserDao userDao;
 

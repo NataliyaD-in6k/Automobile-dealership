@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: employee
@@ -12,8 +13,29 @@
 </head>
 <%@ include file="header.jsp" %>
 <body class="container">
-<form action="">
-
+<h2>Deal creation</h2>
+<form action="/models" method="post">
+    <label for="brand">Choose brand:</label>
+    <select name="brand_id" id="brand">
+        <c:forEach items="${brands}" var="brand">
+            <option value="${brand.id}">${brand.name}</option>
+        </c:forEach>
+    </select>
+    <input type="submit" value="confirm">
+</form>
+<form action="/price" , method="post">
+    <label for="model">Choose model:</label>
+    <select name="model_id" id="model">
+        <c:forEach items="${models}" var="model">
+            <option value="${model.id}">${model.name}</option>
+        </c:forEach>
+    </select>
+    <input type="submit" value="confirm">
+</form>
+<span class="price">Price:  $ ${model.price}</span>
+<form action="/register-deal" method="post">
+    <input type="hidden" name="user_id" value="${user.id}">
+    <input type="submit">
 </form>
 </body>
 </html>

@@ -12,8 +12,9 @@
 </head>
 <body>
 <%@ include file="header.jsp" %>
-<h1 class="text-center">Sign in</h1>
+
 <form action="/process-form" method="post" role="form" class="sign-in form-horizontal">
+    <h1 class="text-center">Sign in</h1>
     <div class="form-group">
         <label for="mail" class="col-sm-4 control-label lead">Email</label>
         <div class="col-sm-4">

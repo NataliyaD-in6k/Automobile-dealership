@@ -7,11 +7,11 @@
 <body class="container">
 <%@ include file="header.jsp" %>
 <div class="profile col-sm-offset-3">
-    <h2 class="">Information about profile:</h2>
-    <div class="">First name: ${user.firstName}</div>
-    <div class="">Last name: ${user.lastName}</div>
+    <h2>Information about profile:</h2>
+    <div>First name: ${user.firstName}</div>
+    <div>Last name: ${user.lastName}</div>
 
-<form action="create-deal">
+<form action="create-deal" method="post">
     <input type="submit" class="create-deal-button col-sm-2 btn btn-success" value="Create deal">
 </form>
 </div>
