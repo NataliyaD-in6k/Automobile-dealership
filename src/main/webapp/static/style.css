@@ -2,11 +2,19 @@ body{
     background-color: #2f4f4f;
     color: #ffffff;
 }
+th{
+    color: aquamarine;
+    text-align: center;
+}
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 .site-header{
     height: 90px;
-    margin: 0;
+    margin: 0 0 100px;
     color: #2f4f4f;
-
 }
 .site-header h1{
     margin: 0;
@@ -17,9 +25,6 @@ body{
     display: inline-block;
     margin: 0;
     text-align: center;
-}
-.sign-in{
-    margin-top: 100px;
 }
 .create-deal-button{
     margin-top: 20px;
@@ -34,4 +39,19 @@ body{
 .price{
     font-size: larger;
     font-weight: 200;
+}
+.creation label{
+    font-size: 17px;
+}
+.navigation ul{
+    margin-top: 50px;
+}
+.navigation li{
+    margin: 10px 0;
+}
+.navigation a{
+    display: block;
+}
+.navigation button{
+    width: 100%;
 }

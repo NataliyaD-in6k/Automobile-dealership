@@ -26,7 +26,7 @@ public class ModelService {
         return models;
     }
     @Transactional
-    public Model getModelById(Integer modelId) {
+    public Model getById(Integer modelId) {
         return modelDao.getById(modelId);
     }
 }

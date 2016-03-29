@@ -1,9 +1,11 @@
 package web.controller;
 
+import core.entity.Deal;
 import core.entity.Model;
-import core.entity.User;
 import core.service.BrandService;
+import core.service.DealService;
 import core.service.ModelService;
+import core.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -22,6 +24,10 @@ public class DealController {
     private BrandService brandService;
     @Autowired
     private ModelService modelService;
+    @Autowired
+    private DealService dealService;
+    @Autowired
+    private UserService userService;
 
     @RequestMapping(value = "create-deal", method = RequestMethod.POST)
     public String getAllBrands(ModelMap model){
@@ -36,21 +42,22 @@ public class DealController {
     }
 
     @RequestMapping(value = "models", method = RequestMethod.POST)
-    public String getModels(HttpServletRequest request, @RequestParam("brand_id") Integer brandId, ModelMap model){
+    public String getModels(@RequestParam("brand_id") Integer brandId, ModelMap model){
         model.addAttribute("models", modelService.getModelsByBrandId(brandId));
         return "create-deal";
     }
 
     @RequestMapping(value = "price", method = RequestMethod.POST)
     public String getPrice(HttpServletRequest request, @RequestParam("model_id") Integer modelId, ModelMap model){
-        model.addAttribute("model", modelService.getModelById(modelId));
+        model.addAttribute("model", modelService.getById(modelId));
         model.addAttribute("user", request.getSession().getAttribute("user"));
         return "create-deal";
     }
 
     @RequestMapping(value = "register-deal", method = RequestMethod.POST)
-    public String registerDeal(@RequestParam("user_id") Integer userId, @RequestParam("model_id") Integer modelId){
-
-        return "create-deal";
+    public String registerDeal(@RequestParam("user_id") Integer userId, @RequestParam("model_id") Integer modelId, ModelMap model){
+        dealService.create(new Deal(userService.getById(userId), modelService.getById(modelId)));
+        model.addAttribute("deals", dealService.getAll());
+        return "deals";
     }
 }

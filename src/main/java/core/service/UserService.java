@@ -15,7 +15,7 @@ public class UserService {
     private UserDao userDao;
 
     public User getUserByEmail(String email) {
-        return userDao.getUserByEmail(email);
+        return userDao.getByEmail(email);
     }
 
     public boolean authorize(HttpServletRequest request) {
@@ -28,4 +28,7 @@ public class UserService {
         return (User) request.getSession().getAttribute("user");
     }
 
+    public User getById(Integer id) {
+        return userDao.getById(id);
+    }
 }

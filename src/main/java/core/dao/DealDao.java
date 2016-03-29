@@ -24,6 +24,10 @@ public class DealDao {
     }
 
     public void create(Deal deal) {
-        sessionFactory.getCurrentSession().persist(deal);
+        if (deal.getId()==null){
+            sessionFactory.getCurrentSession().persist(deal);
+        }
     }
+
+
 }

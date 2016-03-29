@@ -33,11 +33,14 @@ public class UserDao {
         this.user = user;
     }
 
-    public User getUserByEmail(String email) {
+    public User getByEmail(String email) {
         return (User) sessionFactory.getCurrentSession().createCriteria(User.class, "user")
                 .add(Restrictions.eq("user.email", email)).uniqueResult();
-
     }
 
+    public User getById(Integer id){
+        return (User) sessionFactory.getCurrentSession().createCriteria(User.class, "user")
+                .add(Restrictions.eq("user.id", id)).uniqueResult();
+    }
 
 }

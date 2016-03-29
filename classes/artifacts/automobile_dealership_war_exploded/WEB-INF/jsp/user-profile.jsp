@@ -7,7 +7,7 @@
 <body class="container">
 <%@ include file="header.jsp" %>
 <div class="profile col-sm-offset-3">
-    <h2>Information about profile:</h2>
+    <h2>Profile:</h2>
     <div>First name: ${user.firstName}</div>
     <div>Last name: ${user.lastName}</div>
 
