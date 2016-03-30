@@ -6,7 +6,8 @@
 </head>
 <body class="container">
 <%@ include file="header.jsp" %>
-<div class="profile col-sm-offset-3">
+    <%@ include file="navigation.jsp" %>
+<div class="profile col-sm-offset-4">
     <h2>Profile:</h2>
     <div>First name: ${user.firstName}</div>
     <div>Last name: ${user.lastName}</div>

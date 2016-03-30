@@ -2,6 +2,7 @@ package core.dao;
 
 import core.entity.Deal;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -30,4 +31,8 @@ public class DealDao {
     }
 
 
+    public List<Deal> getAllByUserId(Integer userId) {
+        return (List<Deal>) sessionFactory.getCurrentSession().createCriteria(Deal.class).add(Restrictions.eq("user_id", userId)).uniqueResult();
+
+    }
 }

@@ -55,3 +55,11 @@ ul{
 .navigation button{
     width: 100%;
 }
+.error p{
+    color: red;
+    font-weight: 200;
+}
+.error input:focus{
+    border: solid 1px red;
+    box-shadow: 0 0 5px 1px red;
+}

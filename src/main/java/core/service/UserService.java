@@ -24,6 +24,7 @@ public class UserService {
         return user != null;
     }
 
+
     public User getUser(HttpServletRequest request) {
         return (User) request.getSession().getAttribute("user");
     }

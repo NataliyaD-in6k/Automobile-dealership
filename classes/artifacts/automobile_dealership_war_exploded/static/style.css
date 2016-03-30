@@ -43,15 +43,23 @@ ul{
 .creation label{
     font-size: 17px;
 }
-.navbar ul{
+.navigation ul{
     margin-top: 50px;
 }
-.navbar li{
+.navigation li{
     margin: 10px 0;
 }
-.navbar a{
+.navigation a{
     display: block;
 }
-.navbar button{
+.navigation button{
     width: 100%;
+}
+.error p{
+    color: red;
+    font-weight: 200;
+}
+.error input:focus{
+    border: solid 1px red;
+    box-shadow: 0 0 5px 1px red;
 }

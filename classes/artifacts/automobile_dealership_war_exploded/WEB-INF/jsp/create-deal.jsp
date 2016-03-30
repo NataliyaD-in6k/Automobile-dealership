@@ -12,17 +12,8 @@
     <title>AutoDealer</title>
 </head>
 <%@ include file="header.jsp" %>
+<%@ include file="navigation.jsp" %>
 <body class="container">
-<aside class="navbar col-md-3">
-    <ul>
-        <li>
-            <a href="deals.jsp"><button class="btn btn-info">All deals</button></a>
-        </li>
-        <li>
-            <a href="user-profile.jsp"><button class="btn btn-info">Profile</button></a>
-        </li>
-    </ul>
-</aside>
 <div class="creation col-md-8 col-md-offset-1">
     <h2 class="col-md-9">Deal creation</h2>
     <form action="/models" method="post" class="form-inline">
@@ -53,7 +44,8 @@
             <label class="price" class="form-control-label">Price: $ ${model.price}</label>
             <input class="form-control" type="hidden" name="user_id" value="${user.id}">
             <input class="form-control" type="hidden" name="model_id" value="${model.id}">
-            <input type="submit" class="form-control btn btn-success" value="Register">
+            <button type="submit" class="form-control btn btn-success">Register</button>
+            <%--<input type="submit" class="form-control btn btn-success" value="Register">--%>
         </div>
     </form>
 </div>

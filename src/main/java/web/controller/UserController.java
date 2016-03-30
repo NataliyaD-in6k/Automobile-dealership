@@ -30,7 +30,7 @@ public class UserController {
         if (userService.authorize(request)) {
             return "redirect:/profile";
         } else {
-            return "redirect:/";
+            return "redirect:/authorization-error";
         }
     }
 
@@ -38,5 +38,10 @@ public class UserController {
     public String showUserProfile(ModelMap model, HttpServletRequest request) {
         model.addAttribute(userService.getUser(request));
         return "/user-profile";
+    }
+
+    @RequestMapping(value = "authorization-error", method = RequestMethod.GET)
+    public String showAuthorizationError(){
+        return "/authorization-error";
     }
 }

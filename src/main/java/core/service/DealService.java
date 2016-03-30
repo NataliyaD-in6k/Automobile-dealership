@@ -23,4 +23,10 @@ public class DealService {
     public List<Deal> getAll() {
          return dealDao.getAll();
     }
+
+
+    public List<Deal> getAllByUserId(Integer id) {
+        dealDao.getAllByUserId(id);
+        return null;
+    }
 }

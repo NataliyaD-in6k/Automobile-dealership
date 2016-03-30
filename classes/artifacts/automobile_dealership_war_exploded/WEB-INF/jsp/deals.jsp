@@ -12,8 +12,10 @@
 <head>
     <title>Automobile Dealership</title>
 </head>
+<%@ include file="navigation.jsp" %>
+
 <body class="container">
-<div class="col-xs-offset-2 col-xs-8">
+<div class="col-xs-8">
     <h2 class="text-center">Deals</h2>
     <table class="table stripped-table text-center">
         <tr class="text-center">

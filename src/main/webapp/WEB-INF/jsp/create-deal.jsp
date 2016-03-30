@@ -12,6 +12,7 @@
     <title>AutoDealer</title>
 </head>
 <%@ include file="header.jsp" %>
+<%@ include file="navigation.jsp" %>
 <body class="container">
 <div class="creation col-md-8 col-md-offset-1">
     <h2 class="col-md-9">Deal creation</h2>
@@ -43,7 +44,8 @@
             <label class="price" class="form-control-label">Price: $ ${model.price}</label>
             <input class="form-control" type="hidden" name="user_id" value="${user.id}">
             <input class="form-control" type="hidden" name="model_id" value="${model.id}">
-            <input type="submit" class="form-control btn btn-success" value="Register">
+            <button type="submit" class="form-control btn btn-success">Register</button>
+            <%--<input type="submit" class="form-control btn btn-success" value="Register">--%>
         </div>
     </form>
 </div>
