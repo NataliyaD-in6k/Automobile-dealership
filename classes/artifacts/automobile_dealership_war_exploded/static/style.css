@@ -54,18 +54,16 @@ ul{
     box-shadow: 0 0 5px 0px red;
 }
 .warning p{
-    color: yellow;
+    color: darkgoldenrod;
     font-weight: 200;
     margin-bottom: 0;
 }
 .warning input:focus{
-    border: solid 1px yellow;
-    box-shadow: 0 0 5px 0px yellow;
+    border: solid 1px darkgoldenrod;
+    box-shadow: 0 0 5px 0px darkgoldenrod;
 }
 .error-email-message{
     padding-left: 12px;
     font-size: 17px;
 }
-.navbar a{
 
-}

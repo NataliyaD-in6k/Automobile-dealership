@@ -7,7 +7,7 @@
 
 <form action="/process-form" method="post" role="form" class="sign-in form-horizontal warning">
     <h1 class="text-center sign-in">Sign in</h1>
-    <p class="col-sm-offset-5 error-email-message">Please, enter correct e-mail:</p>
+    <p class="col-sm-offset-5 error-email-message">Please, log in</p>
     <div class="form-group">
         <label for="mail" class="col-sm-5 control-label lead">Email</label>
         <div class="col-sm-2">
