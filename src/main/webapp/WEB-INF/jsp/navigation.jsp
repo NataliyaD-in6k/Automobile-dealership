@@ -16,9 +16,9 @@
         <%--<li>--%>
             <%--<a href="/register-deal"><button class="btn btn-info">All deals</button></a>--%>
         <%--</li>--%>
-        <li>
-            <a href="profile"><button class="btn btn-info">Profile</button></a>
-        </li>
+        <%--<li>--%>
+            <%--<a href="profile"><button class="btn btn-info">Profile</button></a>--%>
+        <%--</li>--%>
     </ul>
 </aside>
 </body>

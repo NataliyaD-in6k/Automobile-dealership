@@ -1,9 +1,8 @@
 body{
-    background-color: #2f4f4f;
-    color: #ffffff;
+    background-color: #fff;
+    color: #000;
 }
 th{
-    color: aquamarine;
     text-align: center;
 }
 ul{
@@ -13,18 +12,20 @@ ul{
 }
 .site-header{
     height: 90px;
-    margin: 0 0 100px;
-    color: #2f4f4f;
 }
 .site-header h1{
     margin: 0;
-    line-height: 55px;
+    line-height: 90px;
+    background-color: powderblue;
 }
 .logo{
     height: 50px;
     display: inline-block;
     margin: 0;
     text-align: center;
+}
+.sign-in{
+    margin-top: 100px;
 }
 .create-deal-button{
     margin-top: 20px;
@@ -43,23 +44,28 @@ ul{
 .creation label{
     font-size: 17px;
 }
-.navigation ul{
-    margin-top: 50px;
-}
-.navigation li{
-    margin: 10px 0;
-}
-.navigation a{
-    display: block;
-}
-.navigation button{
-    width: 100%;
-}
 .error p{
     color: red;
     font-weight: 200;
+    margin-bottom: 0;
 }
 .error input:focus{
     border: solid 1px red;
-    box-shadow: 0 0 5px 1px red;
+    box-shadow: 0 0 5px 0px red;
+}
+.warning p{
+    color: yellow;
+    font-weight: 200;
+    margin-bottom: 0;
+}
+.warning input:focus{
+    border: solid 1px yellow;
+    box-shadow: 0 0 5px 0px yellow;
+}
+.error-email-message{
+    padding-left: 12px;
+    font-size: 17px;
+}
+.navbar a{
+
 }

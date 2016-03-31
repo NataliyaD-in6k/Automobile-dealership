@@ -21,7 +21,10 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping("")
-    public String showSignInForm() {
+    public String showSignInForm(HttpServletRequest request) {
+        if (!request.getSession().isNew()) {
+            request.getSession().removeAttribute("user");
+        }
         return "sign-in";
     }
 
@@ -36,12 +39,17 @@ public class UserController {
 
     @RequestMapping(value = "profile", method = RequestMethod.GET)
     public String showUserProfile(ModelMap model, HttpServletRequest request) {
+        if(request.getSession().getAttribute("user") == null){
+            return "not-authorize";
+        }
         model.addAttribute(userService.getUser(request));
         return "/user-profile";
     }
 
     @RequestMapping(value = "authorization-error", method = RequestMethod.GET)
-    public String showAuthorizationError(){
+    public String showAuthorizationError() {
         return "/authorization-error";
     }
+
+
 }

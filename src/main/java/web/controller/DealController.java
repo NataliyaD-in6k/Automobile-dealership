@@ -63,6 +63,12 @@ public class DealController {
         return "deals";
     }
 
+    @RequestMapping(value = "all-deals")
+    public String showAllDeals(ModelMap model){
+        model.addAttribute("deals", dealService.getAll());
+        return "deals";
+    }
+
     @RequestMapping(value = "register-deal", method = RequestMethod.GET)
     public String showUserDeals(ModelMap model, HttpServletRequest request) {
         User user = (User)(model.get(request.getSession().getAttribute("user")));

@@ -17,17 +17,21 @@
 <body class="container">
 <div class="col-xs-8">
     <h2 class="text-center">Deals</h2>
-    <table class="table stripped-table text-center">
+    <table class="table stripped-table table-striped text-center">
         <tr class="text-center">
-            <th>User name</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Brand</th>
+            <th>Model</th>
             <th>Sum of deal, $</th>
-            <th>Brand model</th>
         </tr>
         <c:forEach items="${deals}" var="deal">
             <tr>
-                <td>${deal.user.firstName} ${deal.user.lastName}</td>
+                <td>${deal.user.firstName}</td>
+                <td>${deal.user.lastName}</td>
+                <td>${deal.model.brand.name}</td>
+                <td>${deal.model.name}</td>
                 <td>${deal.model.price}</td>
-                <td>${deal.model.brand.name} ${deal.model.name}</td>
             </tr>
         </c:forEach>
     </table>

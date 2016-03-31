@@ -14,12 +14,12 @@
 <%@ include file="header.jsp" %>
 
 <form action="/process-form" method="post" role="form" class="sign-in form-horizontal error">
-    <h1 class="text-center">Sign in</h1>
-    <p class="text-center">Entered e-mail is incorrect!</p>
+    <h1 class="text-center sign-in">Sign in</h1>
+    <p class="col-sm-offset-5 error-email-message">Please, enter correct e-mail:</p>
     <div class="form-group">
-        <label for="mail" class="col-sm-4 control-label lead">Email</label>
-        <div class="col-sm-4">
-            <input type="text" name="email" id="mail" class="form-control" placeholder="Your email" autofocus>
+        <label for="mail" class="col-sm-5 control-label lead">Email</label>
+        <div class="col-sm-2">
+            <input type="text" name="email" id="mail" class="form-control" placeholder="Your email" autofocus required>
         </div>
         <div class="col-sm-1">
             <input type="submit" value="Sign in" class="btn btn-success form-control">
