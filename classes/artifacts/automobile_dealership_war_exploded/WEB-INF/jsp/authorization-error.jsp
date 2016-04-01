@@ -19,7 +19,7 @@
     <div class="form-group">
         <label for="mail" class="col-sm-5 control-label lead">Email</label>
         <div class="col-sm-2">
-            <input type="text" name="email" id="mail" class="form-control" placeholder="Your email" autofocus required>
+            <input type="email" name="email" id="mail" class="form-control" placeholder="Your email" autofocus required>
         </div>
         <div class="col-sm-1">
             <input type="submit" value="Sign in" class="btn btn-success form-control">

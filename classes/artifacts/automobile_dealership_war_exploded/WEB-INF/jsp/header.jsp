@@ -41,7 +41,6 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/">Log off</a></li>
-                    <li><a href="../navbar-fixed-top/">Fixed top</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->

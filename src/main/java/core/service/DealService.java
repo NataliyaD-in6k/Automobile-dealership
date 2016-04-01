@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -24,9 +25,15 @@ public class DealService {
          return dealDao.getAll();
     }
 
-
-    public List<Deal> getAllByUserId(Integer id) {
-        dealDao.getAllByUserId(id);
-        return null;
+    @Transactional
+    public List<Deal> getAllByUserId(Integer userId) {
+        List<Deal> deals = new ArrayList<Deal>();
+        for (Deal deal : dealDao.getAll()) {
+            if (deal.getUser().getId().equals(userId)) {
+                deals.add(deal);
+            }
+        }
+        return deals;
+//        return dealDao.getAllByUserId(userId);
     }
 }

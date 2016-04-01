@@ -12,26 +12,21 @@
 <head>
     <title>Automobile Dealership</title>
 </head>
-<%@ include file="navigation.jsp" %>
-
 <body class="container">
-<div class="col-xs-8">
+<div class="container">
     <h2 class="text-center">Deals</h2>
-    <table class="table stripped-table table-striped text-center">
+    <%--<a href="/choose-brand">New deal</a>--%>
+    <table class="table stripped-table table-striped text-center table-hover">
         <tr class="text-center">
-            <th>First name</th>
-            <th>Last name</th>
             <th>Brand</th>
             <th>Model</th>
             <th>Sum of deal, $</th>
         </tr>
         <c:forEach items="${deals}" var="deal">
             <tr>
-                <td>${deal.user.firstName}</td>
-                <td>${deal.user.lastName}</td>
                 <td>${deal.model.brand.name}</td>
                 <td>${deal.model.name}</td>
-                <td>${deal.model.price}</td>
+                <td style="padding-right: 50px">${deal.model.price}</td>
             </tr>
         </c:forEach>
     </table>

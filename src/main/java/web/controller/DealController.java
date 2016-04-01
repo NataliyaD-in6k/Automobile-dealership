@@ -10,6 +10,7 @@ import core.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,49 +31,66 @@ public class DealController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "create-deal", method = RequestMethod.POST)
+    @RequestMapping(value = "choose-brand", method = RequestMethod.POST)
     public String getAllBrands(ModelMap model) {
         model.addAttribute("brands", brandService.getAllbrands());
-        return "create-deal";
+        return "choose-brand";
     }
 
-    @RequestMapping(value = "create-deal", method = RequestMethod.GET)
+    @RequestMapping(value = "models", method = RequestMethod.GET)
     public String setBrand(HttpServletRequest request, ModelMap model) {
         List<Model> models = (List<Model>) request.getSession().getAttribute("models");
         model.addAttribute(models);
-        return "create-deal";
+        return "choose-brand";
     }
 
     @RequestMapping(value = "models", method = RequestMethod.POST)
     public String getModels(@RequestParam("brand_id") Integer brandId, ModelMap model) {
         model.addAttribute("models", modelService.getModelsByBrandId(brandId));
-        return "create-deal";
+        return "choose-model";
     }
 
     @RequestMapping(value = "price", method = RequestMethod.POST)
     public String getPrice(HttpServletRequest request, @RequestParam("model_id") Integer modelId, ModelMap model) {
         model.addAttribute("model", modelService.getById(modelId));
         model.addAttribute("user", request.getSession().getAttribute("user"));
-        return "create-deal";
+        return "deal-registration";
     }
 
-    @RequestMapping(value = "register-deal", method = RequestMethod.POST)
-    public String registerDeal(@RequestParam("user_id") Integer userId, @RequestParam("model_id") Integer modelId, ModelMap model) {
-        dealService.create(new Deal(userService.getById(userId), modelService.getById(modelId)));
-        model.addAttribute("deals", dealService.getAll());
-        return "deals";
-    }
+//    @RequestMapping(value = "register-deal", method = RequestMethod.POST)
+//    public String registerDeal(@RequestParam("user_id") Integer userId, @RequestParam("model_id") Integer modelId, ModelMap model) {
+//        dealService.create(new Deal(userService.getById(userId), modelService.getById(modelId)));
+//        model.addAttribute("deals", dealService.getAll());
+//        return "deals";
+//    }
 
     @RequestMapping(value = "all-deals")
     public String showAllDeals(ModelMap model){
         model.addAttribute("deals", dealService.getAll());
-        return "deals";
+        return "all-deals";
     }
 
-    @RequestMapping(value = "register-deal", method = RequestMethod.GET)
-    public String showUserDeals(ModelMap model, HttpServletRequest request) {
-        User user = (User)(model.get(request.getSession().getAttribute("user")));
-        dealService.getAllByUserId(user.getId());
+//    @RequestMapping(value = "deal-creation", method = RequestMethod.POST)
+//    public String createDeal(@RequestParam("user_id") Integer userId,
+//                             @RequestParam("model_id") Integer modelId){
+//        dealService.create(new Deal(userService.getById(userId), modelService.getById(modelId)));
+//        return "redirect:/deals";
+//    }
+
+    @RequestMapping(value = "/user-deals", method = RequestMethod.POST)
+    public String showUserDeals(ModelMap model, HttpServletRequest request,
+                                @RequestParam("user_id") Integer userId,
+                                @RequestParam("model_id") Integer modelId) {
+        dealService.create(new Deal(userService.getById(userId), modelService.getById(modelId)));
+//        User user = (User)(model.get(request.getSession().getAttribute("user")));
+        model.addAttribute("deals", dealService.getAllByUserId(userId));
+        request.getSession().setAttribute("user-id", userId);
+        return "redirect:/deals";
+    }
+
+    @RequestMapping(value = "deals", method = RequestMethod.GET)
+    public String showDeals(ModelMap model, HttpServletRequest request){
+        model.addAttribute("deals", dealService.getAllByUserId((Integer) request.getSession().getAttribute("user-id")));
 
         return "deals";
     }
