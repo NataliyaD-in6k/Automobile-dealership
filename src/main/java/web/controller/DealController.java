@@ -21,7 +21,6 @@ import java.util.List;
 @Controller
 public class DealController {
 
-
     @Autowired
     private BrandService brandService;
     @Autowired
@@ -31,7 +30,7 @@ public class DealController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "choose-brand", method = RequestMethod.POST)
+    @RequestMapping(value = "choose-brand", method = RequestMethod.GET)
     public String getAllBrands(ModelMap model) {
         model.addAttribute("brands", brandService.getAllbrands());
         return "choose-brand";
@@ -77,7 +76,7 @@ public class DealController {
 //        return "redirect:/deals";
 //    }
 
-    @RequestMapping(value = "/user-deals", method = RequestMethod.POST)
+    @RequestMapping(value = "user-deals", method = RequestMethod.POST)
     public String showUserDeals(ModelMap model, HttpServletRequest request,
                                 @RequestParam("user_id") Integer userId,
                                 @RequestParam("model_id") Integer modelId) {

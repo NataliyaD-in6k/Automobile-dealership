@@ -8,19 +8,23 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-@Configuration
-@EnableWebSecurity
-@EnableWebMvc
+
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-            .antMatchers("/", "/home").authenticated()
+            .antMatchers("/", "/profile").denyAll()
             .anyRequest().authenticated()
         .and()
             .formLogin()
             .loginPage("/login")
+            .failureHandler((httpServletRequest, httpServletResponse, e) -> {
+                System.out.println("Error");
+            })
+            .successHandler((httpServletRequest, httpServletResponse, e) -> {
+                System.out.println("Success");
+            })
             .permitAll()
         .and()
             .logout()

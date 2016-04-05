@@ -3,6 +3,8 @@ package web.controller;
 import core.entity.User;
 import core.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -20,35 +22,22 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("")
+    @RequestMapping("/login")
     public String showSignInForm(HttpServletRequest request) {
-        if (!request.getSession().isNew()) {
-            request.getSession().removeAttribute("user");
-        }
         return "sign-in";
     }
 
-    @RequestMapping(value = "process-form", method = RequestMethod.POST)
-    public String processForm(HttpServletRequest request) {
-        if (userService.authorize(request)) {
-            return "redirect:/profile";
-        } else {
-            return "redirect:/authorization-error";
-        }
-    }
-
-    @RequestMapping(value = "profile", method = RequestMethod.GET)
+    @RequestMapping(value = "", method = RequestMethod.GET)
     public String showUserProfile(ModelMap model, HttpServletRequest request) {
-        if(request.getSession().getAttribute("user") == null){
-            return "not-authorize";
-        }
-        model.addAttribute(userService.getUser(request));
-        return "/user-profile";
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String name = auth.getName();
+        model.addAttribute("username", name);
+        return "user-profile";
     }
 
     @RequestMapping(value = "authorization-error", method = RequestMethod.GET)
     public String showAuthorizationError() {
-        return "/authorization-error";
+        return "authorization-error";
     }
 
 
