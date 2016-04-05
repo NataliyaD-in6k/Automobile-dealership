@@ -12,9 +12,9 @@
     <!--DB config start-->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://sql7.freemysqlhosting.net:3306/sql7112507" />
-        <property name="username" value="sql7112507" />
-        <property name="password" value="p4jd74hVZf" />
+        <property name="url" value="jdbc:mysql://127.0.0.1:3306/automobile_dealership" />
+        <property name="username" value="root" />
+        <property name="password" value="" />
     </bean>
 
     <bean id="sessionFactory"

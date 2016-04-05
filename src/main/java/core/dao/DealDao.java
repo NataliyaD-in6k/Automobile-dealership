@@ -21,7 +21,7 @@ public class DealDao {
 
     public List<Deal> getAll(){
         List<Deal> deals = new ArrayList<Deal>();
-        return deals = sessionFactory.getCurrentSession().createCriteria(Deal.class).list();
+        return deals = sessionFactory.getCurrentSession().createCriteria(Deal.class, "deal").list();
     }
 
     public void create(Deal deal) {

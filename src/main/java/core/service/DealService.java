@@ -34,6 +34,5 @@ public class DealService {
             }
         }
         return deals;
-//        return dealDao.getAllByUserId(userId);
     }
 }
