@@ -17,7 +17,7 @@ public class BrandService {
     private BrandDao brandDao;
 
     @Transactional
-    public List<Brand> getAllbrands() {
+    public List<Brand> getAllBrands() {
         return brandDao.getAll();
     }
 }

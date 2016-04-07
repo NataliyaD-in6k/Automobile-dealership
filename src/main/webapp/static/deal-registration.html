@@ -1,0 +1,30 @@
+<!doctype html>
+<html ng-app="dealRegistraion">
+<head>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="js/deal-registration.js"></script>
+</head>
+<body>
+
+<div ng-controller="DealController as dealvm">
+    <table>
+        <tr ng-repeat="deal in dealvm.deals">
+            <td>{{deal.model.name}}</td>
+            <td>{{deal.model.brand.name}}</td>
+            <td>{{deal.model.price}}</td>
+        </tr>
+    </table>
+
+    <select ng-model="dealvm.brandId" ng-change="dealvm.onBrandChange()">
+        <option ng-repeat="brand in dealvm.brands" value="{{brand.id}}">{{brand.name}}</option>
+    </select>
+
+    <select ng-show="dealvm.brandId != null" ng-model="dealvm.modelId">
+        <option ng-repeat="model in dealvm.models" value="{{model.id}}">{{model.name}} [{{model.price}}]</option>
+    </select>
+
+    <button ng-show="dealvm.modelId != null" ng-click="dealvm.createDeal()">Create deal</button>
+</div>
+
+</body>
+</html>

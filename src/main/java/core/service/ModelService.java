@@ -15,6 +15,11 @@ public class ModelService {
     private ModelDao modelDao;
 
     @Transactional
+    public List<Model> getAll() {
+        return modelDao.getAll();
+    }
+
+    @Transactional
     public List<Model> getModelsByBrandId(Integer brandId) {
         List<Model> models = new ArrayList<Model>();
 
