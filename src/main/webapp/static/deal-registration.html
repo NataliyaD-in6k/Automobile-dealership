@@ -1,13 +1,25 @@
 <!doctype html>
 <html ng-app="dealRegistraion">
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
     <script src="js/deal-registration.js"></script>
 </head>
 <body>
+<header class="header-wrapper container">
+    <div class="site-header">
+        <div class="logo col-sm-2">
+            <span class="glyphicon glyphicon-car"></span>
+        </div>
+        <h1>Automobile Dealership</h1>
+    </div>
+</header>
 
 <div ng-controller="DealController as dealvm">
-    <table>
+
+    <table class="table stripped-table table-striped text-center table-hover">
         <tr ng-repeat="deal in dealvm.deals">
             <td>{{deal.model.name}}</td>
             <td>{{deal.model.brand.name}}</td>

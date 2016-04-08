@@ -18,9 +18,7 @@
     <c:if test="${admin}">
         <c:redirect url="/all-deals"/>
     </c:if>
-    <form action="choose-brand" method="post">
-        <input type="submit" class="create-deal-button col-sm-2 btn btn-success" value="Create deal">
-    </form>
+    <a href="static/deal-registration.html"><button class="create-deal-button col-sm-3 btn btn-success">Register deal</button></a>
 </div>
 </body>
 </html>

@@ -66,7 +66,8 @@ public class DealController {
 
     @RequestMapping(value = "deals", method = RequestMethod.POST)
     public void showDeals(HttpServletRequest request, @RequestBody Deal deal){
-        deal.setUser((User)request.getSession().getAttribute("user"));
+        User user = (User)request.getSession().getAttribute("user");
+        deal.setUser(user);
         dealService.create(deal);
     }
 
